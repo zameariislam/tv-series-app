@@ -4,12 +4,14 @@ import 'bootstrap/dist/js/bootstrap'
 import React, { useEffect, useState } from 'react';
 import Cards from './components/Cards/Cards'
 import Filters from './components/Filters/Filters'
+import Pagination from './components/Pagination/Pagination';
 
 
 const App = () => {
  
 
-  const [pageNumber, updatePageNumber] = useState(4);
+  const [pageNumber, setPageNumber] = useState(1);
+  console.log(pageNumber)
   const [fetchedData, setFetchedData] = useState([]);
   const [info, setInfo] = useState({});
   
@@ -36,7 +38,7 @@ const App = () => {
 
   return (
 
-    <div className='  m-auto container border '>
+    <div className='mx-auto container border '>
 
       <div  className='row' >
         <div className='col-3'>
@@ -54,6 +56,9 @@ const App = () => {
         </div>
 
       </div>
+      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} >
+
+      </Pagination>
 
 
       
