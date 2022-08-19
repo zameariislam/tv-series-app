@@ -1,0 +1,10 @@
+.input{
+    width: 40%;
+    border-radius: 8px;
+    border: 2px solid blue;
+    padding: 10px 15px;
+
+}
+.input:focus{
+    outline-offset: 0mm;
+}

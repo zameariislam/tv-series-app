@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Cards from './components/Cards/Cards'
 import Filters from './components/Filters/Filters'
 import Pagination from './components/Pagination/Pagination';
+import Search from './components/Search/Search';
 
 
 const App = () => {
@@ -14,13 +15,14 @@ const App = () => {
   console.log(pageNumber)
   const [fetchedData, setFetchedData] = useState([]);
   const [info, setInfo] = useState({});
+  const[search,setSearch]=useState('')
   
  
   
   
   
   
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
 
   useEffect(()=>{
     (async function(){
@@ -34,11 +36,14 @@ const App = () => {
       console.log(data.results);
     })()
   },[api])
+  console.log(search)
 
 
   return (
 
     <div className='mx-auto container border '>
+      <Search setPageNumber={setPageNumber} setSearch={setSearch}></Search>
+
 
       <div  className='row' >
         <div className='col-3'>
